@@ -303,6 +303,12 @@ UcX86Registers class >> edx [
 ]
 
 { #category : #accessing }
+UcX86Registers class >> eflags [
+
+	^ UC_X86_REG_EFLAGS
+]
+
+{ #category : #accessing }
 UcX86Registers class >> eip [
 
 	^ UC_X86_REG_EIP

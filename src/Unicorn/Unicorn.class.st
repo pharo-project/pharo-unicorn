@@ -66,6 +66,10 @@ A single method (#startAt:until:timeout:count:) allows to start the execution of
 Class {
 	#name : #Unicorn,
 	#superclass : #FFIExternalObject,
+	#instVars : [
+		'hooks',
+		'runtimeError'
+	],
 	#pools : [
 		'UnicornConstants',
 		'UnicornTypes'
@@ -124,6 +128,19 @@ Unicorn class >> x8664 [
 ]
 
 { #category : #private }
+Unicorn >> addHookOfType: type withCallback: callback forHandle: hookHandle [
+
+	self ffiCall: #(UC_err uc_hook_add(
+		self,
+		void *hookHandle,
+		int type,
+		FFICallback callback,
+		NULL,
+		1,
+		0))
+]
+
+{ #category : #private }
 Unicorn >> doMapHostMemory: aMemory ofSize: size atAddress: address withPermissions: permissions [
 
 	self ffiCall: #(UC_err uc_mem_map_ptr(self, uint64 address, size_t size, uint32 permissions, void *aMemory))
@@ -171,15 +188,42 @@ Unicorn >> ffiLibrary [
 	^ UnicornLibrary
 ]
 
+{ #category : #resources }
+Unicorn >> finalize [
+
+	^ self free
+]
+
+{ #category : #private }
+Unicorn >> free [
+
+	self ffiCall: #(UC_err uc_free(self))
+]
+
+{ #category : #hooks }
+Unicorn >> hooks [
+	
+	^ hooks ifNil: [ hooks := OrderedCollection new ]
+]
+
+{ #category : #initialization }
+Unicorn >> initialize [
+
+	super initialize.
+	WeakRegistry default add: self
+]
+
 { #category : #'memory-mapping' }
 Unicorn >> mapHostMemory: aMemory atAddress: address withPermissions: permissions [
 
+	| errorCode |
 	aMemory pinInMemory.
-	^ self
+	errorCode := self
 		doMapHostMemory: aMemory
 		ofSize: aMemory size
 		atAddress: address
-		withPermissions: permissions
+		withPermissions: permissions.
+	self verifyErrorCode: errorCode
 ]
 
 { #category : #'memory-mapping' }
@@ -226,6 +270,15 @@ Unicorn >> memoryAt: address write: bytes size: size [
 ]
 
 { #category : #'register-read/write' }
+Unicorn >> readRegisterId: aRegisterId size: aSize [
+
+	| buffer |
+	buffer := ByteArray new: aSize.
+	self register: aRegisterId value readInto: buffer.
+	^ buffer
+]
+
+{ #category : #'register-read/write' }
 Unicorn >> register: regid readInto: value [
 
 	self ffiCall: #(UC_err uc_reg_read(self, int regid, void *value))
@@ -237,11 +290,51 @@ Unicorn >> register: regid write: value [
 	self ffiCall: #(UC_err uc_reg_write(self, int regid, void *value))
 ]
 
+{ #category : #hooks }
+Unicorn >> registerHook: anUcHook [ 
+
+	self hooks add: anUcHook
+]
+
+{ #category : #hooks }
+Unicorn >> registerInvalidMemoryAccessHook: hookType doing: aBlock [
+
+	| callback hookHandle hook returnCode |
+	callback := FFICallback 
+		signature: #(bool (Unicorn *uc, int type, uint64_t address, int size, int64_t value, void *user_data))
+		block: [ :uc :type :address :size :value :user_data | [
+			aBlock value: (UcMemoryAccessType fromInteger: type) value: address value: size value: value.
+			true ] on: Error do: [ :exception |
+				runtimeError := exception freeze.
+				false ] ].
+	hookHandle := ByteArray new: Smalltalk wordSize.
+	
+	returnCode := self
+		addHookOfType: hookType value
+		withCallback: callback
+		forHandle: hookHandle.
+	self verifyErrorCode: returnCode.
+
+	hook := UcHook new
+		handle: hookHandle;
+		type: hookType;
+		callback: callback;
+		yourself.
+	
+	self registerHook: hook.
+	^ hook
+]
+
 { #category : #running }
 Unicorn >> startAt: begin until: until timeout: timeout count: count [ 
 
 	| result |
-	result := self doStartAt: begin until: until timeout: timeout count: count.
+	[
+		result := self doStartAt: begin until: until timeout: timeout count: count.
+		runtimeError ifNotNil: [
+			runtimeError privHandlerContext privSender: thisContext.
+			runtimeError pass ].
+	] ensure: [ runtimeError := nil ].
 	self verifyErrorCode: result.
 	^ result
 ]
