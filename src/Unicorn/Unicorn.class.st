@@ -301,7 +301,7 @@ Unicorn >> registerInvalidMemoryAccessHook: hookType doing: aBlock [
 
 	| callback hookHandle hook returnCode |
 	callback := FFICallback 
-		signature: #(bool (Unicorn *uc, int type, uint64_t address, int size, int64_t value, void *user_data))
+		signature: #(bool (Unicorn *uc, int type, uint64 address, int size, int64 value, void *user_data))
 		block: [ :uc :type :address :size :value :user_data | [
 			aBlock value: (UcMemoryAccessType fromInteger: type) value: address value: size value: value.
 			true ] on: Error do: [ :exception |
