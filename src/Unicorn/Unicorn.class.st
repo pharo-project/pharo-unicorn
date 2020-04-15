@@ -216,6 +216,9 @@ Unicorn >> initialize [
 { #category : #'memory-mapping' }
 Unicorn >> mapHostMemory: aMemory atAddress: address withPermissions: permissions [
 
+	"This address must be aligned to 4KB, or this will return with UC_ERR_ARG error"
+	"This size must be multiple of 4KB, or this will return with UC_ERR_ARG error."
+	
 	| errorCode |
 	aMemory pinInMemory.
 	errorCode := self
