@@ -42,6 +42,12 @@ UcHookType class >> enumDecl [
 ]
 
 { #category : #'as yet unclassified' }
+UcHookType class >> fetchingAccess [
+
+	^ UC_HOOK_MEM_FETCH
+]
+
+{ #category : #'as yet unclassified' }
 UcHookType class >> illegalProtectedMemoryAccess [
 
 	"Hook type for all events of illegal protected memory access"
