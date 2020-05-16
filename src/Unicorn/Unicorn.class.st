@@ -342,6 +342,12 @@ Unicorn >> startAt: begin until: until timeout: timeout count: count [
 	^ result
 ]
 
+{ #category : #private }
+Unicorn >> stop [
+	"Stop emulation. Typically called from a callback"
+	self ffiCall: #(UC_err uc_emu_stop(self))
+]
+
 { #category : #errors }
 Unicorn >> stringOfErrorCode: code [
 
