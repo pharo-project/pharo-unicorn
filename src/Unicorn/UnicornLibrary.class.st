@@ -15,3 +15,8 @@ UnicornLibrary >> macModuleName [
 	
 	^ 'libunicorn.1.dylib'
 ]
+
+{ #category : #'accessing platform' }
+UnicornLibrary >> unixModuleName [
+	^ 'libunicorn.so'
+]
