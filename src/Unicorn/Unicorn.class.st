@@ -220,6 +220,13 @@ Unicorn >> mapHostMemory: aMemory atAddress: address withPermissions: permission
 	"This size must be multiple of 4KB, or this will return with UC_ERR_ARG error."
 	
 	| errorCode |
+	
+	aMemory size \\ 4096 = 0
+		ifFalse: [ self error: 'The memory mapped should have a size multiple of 4KB' ].
+
+	address \\ 4096 = 0
+		ifFalse: [ self error: 'The memory mapped should be at an address multiple of 4KB' ].
+	
 	aMemory pinInMemory.
 	errorCode := self
 		doMapHostMemory: aMemory
@@ -338,7 +345,6 @@ Unicorn >> startAt: begin until: until timeout: timeout count: count [
 			runtimeError privHandlerContext privSender: thisContext.
 			runtimeError pass ].
 	] ensure: [ runtimeError := nil ].
-	self verifyErrorCode: result.
 	^ result
 ]
 
