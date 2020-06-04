@@ -384,6 +384,11 @@ UcARMRegisters class >> r1 [
 ]
 
 { #category : #'as yet unclassified' }
+UcARMRegisters class >> r10 [
+	^ UC_ARM_REG_R10
+]
+
+{ #category : #'as yet unclassified' }
 UcARMRegisters class >> r12 [
 	^ UC_ARM_REG_R12
 ]
