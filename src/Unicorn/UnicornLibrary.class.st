@@ -18,5 +18,5 @@ UnicornLibrary >> macModuleName [
 
 { #category : #'accessing platform' }
 UnicornLibrary >> unixModuleName [
-	^ 'libunicorn.so'
+	^ FFIUnix64LibraryFinder findLibrary: 'libunicorn.so'
 ]
