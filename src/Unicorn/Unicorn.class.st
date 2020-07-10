@@ -87,19 +87,21 @@ Unicorn class >> architecture: architecture mode: mode [
 		mode: mode
 		enginePointer: enginePointer.
 	(UnicornConstants isOk: return)
-		ifFalse: [ ^ self error: 'Failed to open simulator with error: ', return asString ].
+		ifFalse: [ ^ self error: 'Failed to open simulator with error: ', (self uc_strerror: return) ].
 	^ self fromHandle: enginePointer
 ]
 
 { #category : #'instance-creation' }
 Unicorn class >> arm [
 
+	"Returns a unicorn for instructions in A32 encoding"
 	^ self architecture: UC_ARCH_ARM mode: UC_MODE_ARM
 ]
 
 { #category : #'instance-creation' }
 Unicorn class >> arm64 [
 
+	"Returns a unicorn for instructions in A64 encoding"
 	^ self architecture: UC_ARCH_ARM64 mode: UC_MODE_ARM
 ]
 
@@ -113,6 +115,12 @@ Unicorn class >> ffiLibrary [
 Unicorn class >> uc_open: architecture mode: mode enginePointer: enginePointer [
 	
 	self ffiCall: #(UC_err uc_open(UC_arch architecture,UC_mode mode,void** enginePointer))
+]
+
+{ #category : #private }
+Unicorn class >> uc_strerror: anErrorCode [
+	
+	self ffiCall: #(String uc_strerror(UC_err anErrorCode))
 ]
 
 { #category : #'instance-creation' }

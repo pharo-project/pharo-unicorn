@@ -135,52 +135,52 @@ Class {
 	#category : #Unicorn
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> d0 [
 	^ UC_ARM_REG_D0
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> d1 [
 	^ UC_ARM_REG_D1
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> d10 [
 	^ UC_ARM_REG_D10
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> d11 [
 	^ UC_ARM_REG_D11
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> d12 [
 	^ UC_ARM_REG_D12
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> d13 [
 	^ UC_ARM_REG_D13
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> d14 [
 	^ UC_ARM_REG_D14
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> d15 [
 	^ UC_ARM_REG_D15
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> d2 [
 	^ UC_ARM_REG_D2
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> d3 [
 	^ UC_ARM_REG_D3
 ]
@@ -190,32 +190,32 @@ UcARMRegisters class >> d4 [
 	^ UC_ARM_REG_D4
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> d5 [
 	^ UC_ARM_REG_D5
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> d6 [
 	^ UC_ARM_REG_D6
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> d7 [
 	^ UC_ARM_REG_D7
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> d8 [
 	^ UC_ARM_REG_D8
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> d9 [
 	^ UC_ARM_REG_D9
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> eflags [
 	^ UC_ARM_REG_EFLAGS
 ]
@@ -353,7 +353,7 @@ UcARMRegisters class >> enumDecl [
 	)
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> fp [
 	^ UC_ARM_REG_FP
 ]
@@ -363,7 +363,7 @@ UcARMRegisters class >> initialize [
 	self initializeEnumeration
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> lr [
 	^ UC_ARM_REG_LR
 ]
@@ -378,67 +378,73 @@ UcARMRegisters class >> r0 [
 	^ UC_ARM_REG_R0
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> r1 [
 	^ UC_ARM_REG_R1
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> r10 [
 	^ UC_ARM_REG_R10
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
+UcARMRegisters class >> r11 [
+	
+	^ UC_ARM_REG_R11
+]
+
+{ #category : #accessing }
 UcARMRegisters class >> r12 [
 	^ UC_ARM_REG_R12
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> r2 [
 	^ UC_ARM_REG_R2
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> r3 [
 	^ UC_ARM_REG_R3
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> r4 [
 	^ UC_ARM_REG_R4
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> r5 [
 	^ UC_ARM_REG_R5
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> r6 [
 	^ UC_ARM_REG_R6
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> r7 [
 	^ UC_ARM_REG_R7
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> r8 [
 	^ UC_ARM_REG_R8
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> r9 [
 	^ UC_ARM_REG_R9
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> sl [
 	^ UC_ARM_REG_SL
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 UcARMRegisters class >> sp [
 	^ UC_ARM_REG_SP
 ]
