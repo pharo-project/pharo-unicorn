@@ -600,10 +600,22 @@ UcARM64Registers class >> fp [
 	^ UC_ARM64_REG_X29
 ]
 
+{ #category : #'enum declaration' }
+UcARM64Registers class >> initialize [
+
+	self initializeEnumeration
+]
+
 { #category : #accessing }
 UcARM64Registers class >> lr [
 	"This is an alias to X30"
 	^ UC_ARM64_REG_X30
+]
+
+{ #category : #accessing }
+UcARM64Registers class >> nzcv [
+	
+	^ UC_ARM64_REG_NZCV
 ]
 
 { #category : #accessing }
