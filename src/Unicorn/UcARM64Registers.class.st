@@ -718,3 +718,9 @@ UcARM64Registers class >> x9 [
 	
 	^ UC_ARM64_REG_X9
 ]
+
+{ #category : #accessing }
+UcARM64Registers class >> xzr [
+	
+	^ UC_ARM64_REG_XZR
+]
