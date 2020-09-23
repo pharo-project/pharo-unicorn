@@ -381,5 +381,5 @@ Unicorn >> unmapMemoryAtAddress: address ofSize: size [
 Unicorn >> verifyErrorCode: anInteger [ 
 
 	(UnicornConstants isOk: anInteger) ifTrue: [ ^ self ].
-	self error: (self stringOfErrorCode: anInteger)
+	UnicornError signal: (self stringOfErrorCode: anInteger)
 ]
