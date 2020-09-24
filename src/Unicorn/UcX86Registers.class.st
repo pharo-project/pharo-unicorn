@@ -582,6 +582,12 @@ UcX86Registers class >> esp [
 	^ UC_X86_REG_ESP
 ]
 
+{ #category : #'as yet unclassified' }
+UcX86Registers class >> fp0 [
+	
+	^ UC_X86_REG_FP0
+]
+
 { #category : #'enum declaration' }
 UcX86Registers class >> initialize [
 	self initializeEnumeration

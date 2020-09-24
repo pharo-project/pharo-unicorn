@@ -135,6 +135,11 @@ Class {
 	#category : #Unicorn
 }
 
+{ #category : #'as yet unclassified' }
+UcARMRegisters class >> cpacr [
+	self shouldBeImplemented.
+]
+
 { #category : #accessing }
 UcARMRegisters class >> d0 [
 	^ UC_ARM_REG_D0

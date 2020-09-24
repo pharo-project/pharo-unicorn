@@ -303,6 +303,12 @@ UcARM64Registers class >> cpacr_el1 [
 	^ UC_ARM64_REG_CPACR_EL1
 ]
 
+{ #category : #'as yet unclassified' }
+UcARM64Registers class >> d0 [
+	
+	^ UC_ARM64_REG_D0
+]
+
 { #category : #'enum declaration' }
 UcARM64Registers class >> enumDecl [
 
