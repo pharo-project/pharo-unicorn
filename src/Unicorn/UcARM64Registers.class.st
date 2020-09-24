@@ -297,6 +297,12 @@ Class {
 	#category : #Unicorn
 }
 
+{ #category : #accessing }
+UcARM64Registers class >> cpacr_el1 [
+	
+	^ UC_ARM64_REG_CPACR_EL1
+]
+
 { #category : #'enum declaration' }
 UcARM64Registers class >> enumDecl [
 
