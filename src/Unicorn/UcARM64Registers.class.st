@@ -629,6 +629,12 @@ UcARM64Registers class >> sp [
 	^ UC_ARM64_REG_SP
 ]
 
+{ #category : #'as yet unclassified' }
+UcARM64Registers class >> w6 [
+	
+	^ UC_ARM64_REG_W6
+]
+
 { #category : #accessing }
 UcARM64Registers class >> x0 [
 	
@@ -657,6 +663,36 @@ UcARM64Registers class >> x11 [
 UcARM64Registers class >> x12 [
 	
 	^ UC_ARM64_REG_X12
+]
+
+{ #category : #'as yet unclassified' }
+UcARM64Registers class >> x13 [
+	^ UC_ARM64_REG_X13 
+]
+
+{ #category : #'as yet unclassified' }
+UcARM64Registers class >> x14 [
+	^ UC_ARM64_REG_X14
+]
+
+{ #category : #'as yet unclassified' }
+UcARM64Registers class >> x15 [
+	^ UC_ARM64_REG_X15
+]
+
+{ #category : #'as yet unclassified' }
+UcARM64Registers class >> x16 [
+	^ UC_ARM64_REG_X16
+]
+
+{ #category : #'as yet unclassified' }
+UcARM64Registers class >> x17 [
+	^ UC_ARM64_REG_X17
+]
+
+{ #category : #'as yet unclassified' }
+UcARM64Registers class >> x18 [
+	^ UC_ARM64_REG_X18
 ]
 
 { #category : #accessing }
