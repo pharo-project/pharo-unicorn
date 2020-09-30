@@ -309,6 +309,12 @@ UcARM64Registers class >> d0 [
 	^ UC_ARM64_REG_D0
 ]
 
+{ #category : #'as yet unclassified' }
+UcARM64Registers class >> d1 [
+	
+	^ UC_ARM64_REG_D1
+]
+
 { #category : #'enum declaration' }
 UcARM64Registers class >> enumDecl [
 
