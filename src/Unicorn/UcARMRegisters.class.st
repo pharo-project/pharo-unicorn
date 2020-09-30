@@ -135,11 +135,6 @@ Class {
 	#category : #Unicorn
 }
 
-{ #category : #'as yet unclassified' }
-UcARMRegisters class >> cpacr [
-	self shouldBeImplemented.
-]
-
 { #category : #accessing }
 UcARMRegisters class >> d0 [
 	^ UC_ARM_REG_D0
@@ -361,6 +356,12 @@ UcARMRegisters class >> enumDecl [
 { #category : #accessing }
 UcARMRegisters class >> fp [
 	^ UC_ARM_REG_FP
+]
+
+{ #category : #'as yet unclassified' }
+UcARMRegisters class >> fpexc [
+	
+	^ UC_ARM_REG_FPEXC
 ]
 
 { #category : #'class initialization' }
