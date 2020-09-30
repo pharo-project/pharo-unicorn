@@ -184,12 +184,6 @@ Unicorn >> doStartAt: begin until: until timeout: timeout count: count [
 	self ffiCall: #(UC_err uc_emu_start(self, uint64 begin, uint64 until, uint64 timeout, size_t count))
 ]
 
-{ #category : #private }
-Unicorn >> doUnmapMemoryAtAddress: address ofSize: size [
-
-	self ffiCall: #(UC_err uc_mem_unmap(self, uint64 address, size_t size))
-]
-
 { #category : #resources }
 Unicorn >> ffiLibrary [
 
@@ -368,13 +362,10 @@ Unicorn >> stringOfErrorCode: code [
 	^ self ffiCall: #(const char *uc_strerror(int code))
 ]
 
-{ #category : #'memory-mapping' }
-Unicorn >> unmapMemoryAtAddress: address ofSize: size [
+{ #category : #private }
+Unicorn >> unmapMemoryAt: address size: size [
 
-	| result |
-	result := self doUnmapMemoryAtAddress: address ofSize: size.
-	self verifyErrorCode: result.
-	^ result
+	self ffiCall: #(UC_err uc_mem_unmap(self, uint64 address, size_t size))
 ]
 
 { #category : #errors }
