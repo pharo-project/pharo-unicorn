@@ -633,6 +633,12 @@ UcX86Registers class >> r9 [
 	^ UC_X86_REG_R9
 ]
 
+{ #category : #'as yet unclassified' }
+UcX86Registers class >> r9b [
+	
+	^ UC_X86_REG_R9B
+]
+
 { #category : #accessing }
 UcX86Registers class >> rax [
 	^ UC_X86_REG_RAX
