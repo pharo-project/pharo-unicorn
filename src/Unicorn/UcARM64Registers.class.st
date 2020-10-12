@@ -713,6 +713,11 @@ UcARM64Registers class >> x18 [
 	^ UC_ARM64_REG_X18
 ]
 
+{ #category : #'as yet unclassified' }
+UcARM64Registers class >> x19 [
+	^ UC_ARM64_REG_X19
+]
+
 { #category : #accessing }
 UcARM64Registers class >> x2 [
 	
