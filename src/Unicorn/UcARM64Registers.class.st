@@ -731,6 +731,12 @@ UcARM64Registers class >> x2 [
 ]
 
 { #category : #accessing }
+UcARM64Registers class >> x20 [
+
+	^ UC_ARM64_REG_X20
+]
+
+{ #category : #accessing }
 UcARM64Registers class >> x22 [
 
 	^ UC_ARM64_REG_X22
