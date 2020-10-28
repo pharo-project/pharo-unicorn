@@ -179,6 +179,12 @@ Unicorn >> doMemorySetFrom: address to: size with: bytes [
 ]
 
 { #category : #private }
+Unicorn >> doQuery: type intoHolder: result [
+
+	self ffiCall: #(UC_err uc_query(self, uint32 type, void *result))
+]
+
+{ #category : #private }
 Unicorn >> doStartAt: begin until: until timeout: timeout count: count [ 
 
 	self ffiCall: #(UC_err uc_emu_start(self, uint64 begin, uint64 until, uint64 timeout, size_t count))
@@ -213,6 +219,24 @@ Unicorn >> initialize [
 
 	super initialize.
 	WeakRegistry default add: self
+]
+
+{ #category : #accessing }
+Unicorn >> lastExecutedInstructionAddress [
+
+	^ self query: UC_QUERY_LAST_INSTR_ADDRESS
+]
+
+{ #category : #accessing }
+Unicorn >> lastExecutedInstructionSize [
+	
+	^ self query: UC_QUERY_LAST_INSTR_SIZE
+]
+
+{ #category : #errors }
+Unicorn >> lastInstructionCount [
+
+	^ self query: UC_QUERY_INSTR_COUNT
 ]
 
 { #category : #'memory-mapping' }
@@ -279,6 +303,19 @@ Unicorn >> memoryAt: address write: bytes size: size [
 	result := self doMemoryAt: address write: bytes size: size.
 	self verifyErrorCode: result.
 	^ result
+]
+
+{ #category : #errors }
+Unicorn >> query: type [
+
+	| holder result |
+
+	holder := ByteArray new: Smalltalk wordSize.
+
+	result := self doQuery: type intoHolder: holder.
+	self verifyErrorCode: result.
+	
+	^ holder integerAt: 1 size: Smalltalk wordSize signed: true. 
 ]
 
 { #category : #'register-read/write' }

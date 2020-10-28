@@ -22,7 +22,14 @@ Class {
 		'UC_PROT_EXEC',
 		'UC_PROT_NONE',
 		'UC_PROT_READ',
-		'UC_PROT_WRITE'
+		'UC_PROT_WRITE',
+		'UC_QUERY_ARCH',
+		'UC_QUERY_INSTR_COUNT',
+		'UC_QUERY_LAST_INSTR_ADDRESS',
+		'UC_QUERY_LAST_INSTR_SIZE',
+		'UC_QUERY_MODE',
+		'UC_QUERY_PAGE_SIZE',
+		'UC_QUERY_TIMEOUT'
 	],
 	#pools : [
 		'UnicornTypes'
@@ -63,7 +70,17 @@ UnicornConstants class >> initialize [
 	UC_PROT_READ := 1.
 	UC_PROT_WRITE := 2.
 	UC_PROT_EXEC := 4.
-	UC_PROT_ALL := 7
+	UC_PROT_ALL := 7.
+	
+ "All type of queries for uc_query() API."
+
+   UC_QUERY_MODE := 1. "Dynamically query current hardware mode"
+   UC_QUERY_PAGE_SIZE := 2. "query pagesize of engine"
+   UC_QUERY_ARCH := 3.   "query architecture of engine (for ARM to query Thumb mode)"
+   UC_QUERY_TIMEOUT := 4.  "query if emulation stops due to timeout (indicated if result = True)"
+   UC_QUERY_INSTR_COUNT := 5.  "query the number of counted instructions in last execution"
+   UC_QUERY_LAST_INSTR_ADDRESS := 6.  "query the number of counted instructions in last execution"   	UC_QUERY_LAST_INSTR_SIZE := 7.  "query the number of counted instructions in last execution"
+
 ]
 
 { #category : #api }
