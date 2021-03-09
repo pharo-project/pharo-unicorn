@@ -261,6 +261,12 @@ Class {
 }
 
 { #category : #accessing }
+UcX86Registers class >> al [
+
+	^ UC_X86_REG_AL
+]
+
+{ #category : #accessing }
 UcX86Registers class >> cr4 [
 
 	^ UC_X86_REG_CR4
