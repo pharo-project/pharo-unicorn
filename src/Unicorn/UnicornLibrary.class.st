@@ -18,5 +18,8 @@ UnicornLibrary >> macModuleName [
 
 { #category : #'accessing platform' }
 UnicornLibrary >> unixModuleName [
+
+	"Replace with your own Unicorn2 shared library (libunicorn.so.2), or suppress the breakpoint"
+	1halt.
 	^ FFIUnix64LibraryFinder findLibrary: 'libunicorn.so'
 ]

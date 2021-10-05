@@ -111,6 +111,20 @@ Unicorn class >> ffiLibrary [
 	^ UnicornLibrary
 ]
 
+{ #category : #'instance-creation' }
+Unicorn class >> riscv32 [
+
+	"Returns a unicorn for instructions in A64 encoding"
+	^ self architecture: UC_ARCH_RISCV mode: UC_MODE_RISCV32
+]
+
+{ #category : #'instance-creation' }
+Unicorn class >> riscv64 [
+
+	"Returns a unicorn for instructions in A64 encoding"
+	^ self architecture: UC_ARCH_RISCV mode: UC_MODE_RISCV64
+]
+
 { #category : #private }
 Unicorn class >> uc_open: architecture mode: mode enginePointer: enginePointer [
 	
