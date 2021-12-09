@@ -615,9 +615,69 @@ UcRISCVRegisters class >> pc [
 ]
 
 { #category : #register }
+UcRISCVRegisters class >> s0 [
+
+	^ UC_RISCV_REG_X8
+]
+
+{ #category : #register }
+UcRISCVRegisters class >> s7 [
+
+	^ UC_RISCV_REG_X23
+]
+
+{ #category : #register }
+UcRISCVRegisters class >> s8 [
+
+	^ UC_RISCV_REG_X24
+]
+
+{ #category : #register }
 UcRISCVRegisters class >> s9 [ 
 
 	^ UC_RISCV_REG_X25
+]
+
+{ #category : #register }
+UcRISCVRegisters class >> t0 [
+
+	^ UC_RISCV_REG_X5
+]
+
+{ #category : #register }
+UcRISCVRegisters class >> t1 [
+
+	^ UC_RISCV_REG_X6
+]
+
+{ #category : #register }
+UcRISCVRegisters class >> t2 [
+
+	^ UC_RISCV_REG_X7
+]
+
+{ #category : #register }
+UcRISCVRegisters class >> t3 [
+
+	^ UC_RISCV_REG_X28
+]
+
+{ #category : #register }
+UcRISCVRegisters class >> t4 [
+
+	^ UC_RISCV_REG_X29
+]
+
+{ #category : #register }
+UcRISCVRegisters class >> t5 [
+
+	^ UC_RISCV_REG_X30
+]
+
+{ #category : #register }
+UcRISCVRegisters class >> t6 [
+
+	^ UC_RISCV_REG_X31
 ]
 
 { #category : #register }
