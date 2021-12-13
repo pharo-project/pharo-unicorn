@@ -144,8 +144,8 @@ Unicorn >> addHookOfType: type withCallback: callback forHandle: hookHandle [
 		int type,
 		FFICallback callback,
 		NULL,
-		1,
-		0))
+		uint64 1,
+		uint64 0))
 ]
 
 { #category : #private }
