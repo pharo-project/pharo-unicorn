@@ -621,6 +621,12 @@ UcRISCVRegisters class >> s0 [
 ]
 
 { #category : #register }
+UcRISCVRegisters class >> s2 [
+
+	^ UC_RISCV_REG_X18
+]
+
+{ #category : #register }
 UcRISCVRegisters class >> s7 [
 
 	^ UC_RISCV_REG_X23
