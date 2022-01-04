@@ -13,6 +13,19 @@ Class {
 		'UC_ARCH_RISCV',
 		'UC_ARCH_SPARC',
 		'UC_ARCH_X86',
+		'UC_CTL_CPU_MODEL',
+		'UC_CTL_IO_NONE',
+		'UC_CTL_IO_READ',
+		'UC_CTL_IO_WRITE',
+		'UC_CTL_TB_REMOVE_CACHE',
+		'UC_CTL_TB_REQUEST_CACHE',
+		'UC_CTL_UC_ARCH',
+		'UC_CTL_UC_EXITS',
+		'UC_CTL_UC_EXITS_CNT',
+		'UC_CTL_UC_MODE',
+		'UC_CTL_UC_PAGE_SIZE',
+		'UC_CTL_UC_TIMEOUT',
+		'UC_CTL_UC_USE_EXITS',
 		'UC_ERR_OK',
 		'UC_MODE_16',
 		'UC_MODE_32',
@@ -109,6 +122,28 @@ UnicornConstants class >> initialize [
    UC_QUERY_INSTR_COUNT := 5.  "query the number of counted instructions in last execution"
    UC_QUERY_LAST_INSTR_ADDRESS := 6.  "query the number of counted instructions in last execution"   	
 	UC_QUERY_LAST_INSTR_SIZE := 7.  "query the number of counted instructions in last execution"
+
+	"IO for uc_ctl calls"
+ 	UC_CTL_IO_NONE := 0.
+	UC_CTL_IO_WRITE := 1.
+ 	UC_CTL_IO_READ := 2.
+	
+	"Types of uc_ctl calls"
+	UC_CTL_UC_MODE          := 0.  "Current mode.            READ:  @args = (int*)"
+	UC_CTL_UC_PAGE_SIZE     := 1.  "Current page size.       WRITE: @args = (uint32_t) 
+																		     READ: @args = (uint32_t*)"   
+	UC_CTL_UC_ARCH          := 2.  "Current arch.            READ:  @args = (int*)"
+	UC_CTL_UC_TIMEOUT       := 3.  "Current timeout.         READ:  @args = (uint64_t*)"
+	UC_CTL_UC_USE_EXITS     := 4.  "Enable multiple exits.   WRITE: @args = (int)"
+	UC_CTL_UC_EXITS_CNT     := 5.  "Number of current exits. READ:  @args = (size_t*)"
+	UC_CTL_UC_EXITS         := 6.  "Current exits.           WRITE: @args = (uint64_t* exits, size_t len)
+	                                                            @len  = UC_CTL_UC_EXITS_CNT
+	                                                         READ:  @args = (uint64_t* exits, size_t len)
+	        													              @len  = UC_CTL_UC_EXITS_CNT"
+	UC_CTL_CPU_MODEL        := 7. "Set the cpu model of uc.  WRITE: @args = (int)
+	                                                     READ:  @args = (int*)"
+	UC_CTL_TB_REQUEST_CACHE := 8. "Request a tb cache.       READ:  @args = (uint64_t, uc_tb*)"
+	UC_CTL_TB_REMOVE_CACHE  := 9. "Invalidate a tb cache.    WRITE: @args = (uint64_t, uint64_t)"
 
 ]
 

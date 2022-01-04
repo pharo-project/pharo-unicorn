@@ -199,6 +199,14 @@ Unicorn >> doQuery: type intoHolder: result [
 ]
 
 { #category : #private }
+Unicorn >> doRemoveInstructionCacheFrom: address to: end withControlType: type [
+
+	^ self ffiCall: #(UC_err uc_ctl(self, uint64 type, uint64 address, uint64 end)) 
+
+	
+]
+
+{ #category : #private }
 Unicorn >> doStartAt: begin until: until timeout: timeout count: count [ 
 
 	self ffiCall: #(UC_err uc_emu_start(self, uint64 begin, uint64 until, uint64 timeout, size_t count))
@@ -386,6 +394,20 @@ Unicorn >> registerInvalidMemoryAccessHook: hookType doing: aBlock [
 	
 	self registerHook: hook.
 	^ hook
+]
+
+{ #category : #private }
+Unicorn >> removeInstructionCacheFrom: address to: end [
+
+	| type result | 
+	type := (UC_CTL_TB_REMOVE_CACHE
+				bitOr: (2 << 26))
+				bitOr: (UC_CTL_IO_WRITE << 30).
+	result := self doRemoveInstructionCacheFrom: address to: end withControlType: type.
+	self verifyErrorCode: result.
+
+
+	
 ]
 
 { #category : #running }
