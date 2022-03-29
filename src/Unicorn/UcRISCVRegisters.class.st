@@ -198,6 +198,36 @@ Class {
 	#category : #Unicorn
 }
 
+{ #category : #register }
+UcRISCVRegisters class >> a0 [
+
+	^ UC_RISCV_REG_X10
+]
+
+{ #category : #register }
+UcRISCVRegisters class >> a1 [
+
+	^ UC_RISCV_REG_X11
+]
+
+{ #category : #register }
+UcRISCVRegisters class >> a2 [
+
+	^ UC_RISCV_REG_X12
+]
+
+{ #category : #register }
+UcRISCVRegisters class >> a3 [
+
+	^ UC_RISCV_REG_X13
+]
+
+{ #category : #register }
+UcRISCVRegisters class >> a4 [
+
+	^ UC_RISCV_REG_X14
+]
+
 { #category : #initialization }
 UcRISCVRegisters class >> enumDecl [ 
 
@@ -621,9 +651,21 @@ UcRISCVRegisters class >> s0 [
 ]
 
 { #category : #register }
+UcRISCVRegisters class >> s1 [
+
+	^ UC_RISCV_REG_X9
+]
+
+{ #category : #register }
 UcRISCVRegisters class >> s2 [
 
 	^ UC_RISCV_REG_X18
+]
+
+{ #category : #register }
+UcRISCVRegisters class >> s6 [
+
+	^ UC_RISCV_REG_X22
 ]
 
 { #category : #register }
