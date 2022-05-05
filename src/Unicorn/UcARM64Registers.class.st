@@ -317,7 +317,7 @@ UcARM64Registers class >> d1 [
 
 { #category : #'enum declaration' }
 UcARM64Registers class >> enumDecl [
-
+"self initialize to make the changes effective"
 	^ #(
 	#UC_ARM64_REG_INVALID 0
 	#UC_ARM64_REG_X29 1

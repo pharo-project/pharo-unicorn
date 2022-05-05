@@ -222,7 +222,7 @@ UcARMRegisters class >> eflags [
 
 { #category : #'enum declaration' }
 UcARMRegisters class >> enumDecl [
-
+"self initialize to make the changes effective"
 	^ #(
 	UC_ARM_REG_INVALID 0
 	UC_ARM_REG_APSR 1

@@ -322,6 +322,7 @@ UcX86Registers class >> eip [
 
 { #category : #'enum declaration' }
 UcX86Registers class >> enumDecl [
+"self initialize to make the changes effective"
 ^ #(UC_X86_REG_INVALID 0
 	UC_X86_REG_AH 1
 	UC_X86_REG_AL 2
