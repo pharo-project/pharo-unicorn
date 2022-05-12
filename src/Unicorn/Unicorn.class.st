@@ -201,7 +201,7 @@ Unicorn >> doQuery: type intoHolder: result [
 { #category : #private }
 Unicorn >> doRemoveInstructionCacheFrom: address to: end withControlType: type [
 
-	^ self ffiCall: #(UC_err uc_ctl(self, uint64 type, uint64 address, uint64 end)) 
+	^ self ffiCall: #(UC_err uc_ctl(self, uint64 type, uint64 address, uint64 end)) fixedArgumentCount: 2
 
 	
 ]
