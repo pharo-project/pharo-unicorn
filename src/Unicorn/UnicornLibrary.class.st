@@ -13,7 +13,7 @@ Class {
 { #category : #'accessing platform' }
 UnicornLibrary >> macModuleName [
 	
-	^ FFIMacLibraryFinder findLibrary: 'libunicorn.1.dylib'
+	^ FFIMacLibraryFinder findLibrary: 'libunicorn.2.dylib'
 ]
 
 { #category : #'accessing platform' }

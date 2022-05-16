@@ -11,6 +11,7 @@ Class {
 		'UC_ARCH_MIPS',
 		'UC_ARCH_PPC',
 		'UC_ARCH_RISCV',
+		'UC_ARCH_S390X',
 		'UC_ARCH_SPARC',
 		'UC_ARCH_X86',
 		'UC_CTL_CPU_MODEL',
@@ -75,6 +76,8 @@ UnicornConstants class >> initialize [
 	UC_ARCH_SPARC := 6.  "Sparc architecture"
 	UC_ARCH_M68K  := 7.  "M68K architecture"
 	UC_ARCH_RISCV := 8.  "RISC-V architecture"
+	UC_ARCH_S390X := 9.
+	
 
 	"little / big endian"
 	UC_MODE_LITTLE_ENDIAN := 0.	"little-endian mode (default mode)"
