@@ -647,6 +647,18 @@ UcARM64Registers class >> sp [
 	^ UC_ARM64_REG_SP
 ]
 
+{ #category : #constants }
+UcARM64Registers class >> v0 [
+	
+	^ UC_ARM64_REG_V0
+]
+
+{ #category : #accessing }
+UcARM64Registers class >> v2 [
+	
+	^ UC_ARM64_REG_V2
+]
+
 { #category : #'as yet unclassified' }
 UcARM64Registers class >> w25 [
 	

@@ -707,3 +707,9 @@ UcX86Registers class >> xmm1 [
 
 	^ UC_X86_REG_XMM1
 ]
+
+{ #category : #accessing }
+UcX86Registers class >> xmm2 [
+	
+	^ UC_X86_REG_XMM2
+]

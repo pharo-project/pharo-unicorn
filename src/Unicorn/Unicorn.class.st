@@ -163,6 +163,28 @@ Unicorn >> addHookOfType: type withCallback: callback forHandle: hookHandle [
 ]
 
 { #category : #private }
+Unicorn >> changeCPUModel: model [
+
+	| type result | 
+	type := (UC_CTL_CPU_MODEL 
+				bitOr: (1 << 26))
+				bitOr: (UC_CTL_IO_WRITE << 30).
+	result := self doChangeCPUModel: model withControlType: type.
+	self verifyErrorCode: result.
+
+
+	
+]
+
+{ #category : #private }
+Unicorn >> doChangeCPUModel: model withControlType: type [
+
+	^ self ffiCall: #(UC_err uc_ctl(self, uint64 type, uint64 model)) fixedArgumentCount: 2
+
+	
+]
+
+{ #category : #private }
 Unicorn >> doMapHostMemory: aMemory ofSize: size atAddress: address withPermissions: permissions [
 
 	self ffiCall: #(UC_err uc_mem_map_ptr(self, uint64 address, size_t size, uint32 permissions, void *aMemory))
