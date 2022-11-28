@@ -653,6 +653,12 @@ UcARM64Registers class >> v0 [
 	^ UC_ARM64_REG_V0
 ]
 
+{ #category : #constants }
+UcARM64Registers class >> v1 [
+	
+	^ UC_ARM64_REG_V1
+]
+
 { #category : #accessing }
 UcARM64Registers class >> v2 [
 	
@@ -749,6 +755,12 @@ UcARM64Registers class >> x20 [
 ]
 
 { #category : #accessing }
+UcARM64Registers class >> x21 [
+	
+	^ UC_ARM64_REG_X21
+]
+
+{ #category : #accessing }
 UcARM64Registers class >> x22 [
 
 	^ UC_ARM64_REG_X22
@@ -770,6 +782,18 @@ UcARM64Registers class >> x24 [
 UcARM64Registers class >> x25 [
 
 	^ UC_ARM64_REG_X25
+]
+
+{ #category : #accessing }
+UcARM64Registers class >> x26 [
+
+	^ UC_ARM64_REG_X26
+]
+
+{ #category : #accessing }
+UcARM64Registers class >> x27 [
+
+	^ UC_ARM64_REG_X27
 ]
 
 { #category : #accessing }
