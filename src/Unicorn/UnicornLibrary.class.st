@@ -15,8 +15,8 @@ UnicornLibrary >> knownMacPaths [
 	"Answer a <Collection> of <String> each one representing known libLLVM locations (not necessarily present in the current system"
 	
 	^ { 
-		'/opt/homebrew/lib/' .
 		'/usr/local/lib/' .
+		'/opt/homebrew/lib/' .
 		'/opt/homebrew/Cellar/unicorn/2.0.1/lib/'
 		}
 
