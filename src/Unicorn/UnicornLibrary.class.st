@@ -10,10 +10,26 @@ Class {
 	#category : #Unicorn
 }
 
+{ #category : #accessing }
+UnicornLibrary >> knownMacPaths [
+	"Answer a <Collection> of <String> each one representing known libLLVM locations (not necessarily present in the current system"
+	
+	^ { 
+		'/usr/local/lib/' .
+		'/opt/homebrew/lib/' .
+		'/opt/homebrew/Cellar/unicorn/2.0.1/lib/'
+		}
+
+]
+
 { #category : #'accessing platform' }
 UnicornLibrary >> macModuleName [
+	"Answer a <String> with the full path to the LibUnicorn library"
 	
-	^ FFIMacLibraryFinder findLibrary: 'libunicorn.2.dylib'
+	^ FFIMacLibraryFinder new
+		userPaths: self knownMacPaths;
+		findLibrary: 'libunicorn.2.dylib'
+
 ]
 
 { #category : #'accessing platform' }
