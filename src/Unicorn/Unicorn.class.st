@@ -177,6 +177,12 @@ Unicorn >> changeCPUModel: model [
 ]
 
 { #category : #private }
+Unicorn >> close [
+
+	self ffiCall: #(UC_err uc_close(self))
+]
+
+{ #category : #private }
 Unicorn >> doChangeCPUModel: model withControlType: type [
 
 	^ self ffiCall: #(UC_err uc_ctl(self, uint64 type, uint64 model)) fixedArgumentCount: 2
