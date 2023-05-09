@@ -246,10 +246,10 @@ Unicorn >> ffiLibrary [
 	^ UnicornLibrary
 ]
 
-{ #category : #resources }
+{ #category : #finalization }
 Unicorn >> finalize [
 
-	^ self free
+	^ self close
 ]
 
 { #category : #private }
