@@ -249,7 +249,7 @@ Unicorn >> ffiLibrary [
 { #category : #finalization }
 Unicorn >> finalize [
 
-	^ self free
+	^ self close
 ]
 
 { #category : #private }
