@@ -18,7 +18,8 @@ UnicornLibrary >> knownMacPaths [
 	^ { 
 		'/usr/local/lib/' .
 		'/opt/homebrew/lib/' .
-		'/opt/homebrew/Cellar/unicorn/2.0.1/lib/'
+		'/opt/homebrew/Cellar/unicorn/2.0.1/lib/'.
+		'/usr/local/Cellar/unicorn/2.0.1/lib/'	
 		}
 
 ]
