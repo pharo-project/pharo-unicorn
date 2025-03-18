@@ -304,16 +304,28 @@ UcARM64Registers class >> cpacr_el1 [
 	^ UC_ARM64_REG_CPACR_EL1
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'accessing' }
 UcARM64Registers class >> d0 [
 	
 	^ UC_ARM64_REG_D0
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'accessing' }
 UcARM64Registers class >> d1 [
 	
 	^ UC_ARM64_REG_D1
+]
+
+{ #category : 'accessing' }
+UcARM64Registers class >> d2 [
+	
+	^ UC_ARM64_REG_D2
+]
+
+{ #category : 'accessing' }
+UcARM64Registers class >> d3 [
+	
+	^ UC_ARM64_REG_D3
 ]
 
 { #category : 'enum declaration' }
