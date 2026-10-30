@@ -39,3 +39,10 @@ UnicornLibrary >> unixLibraryName [
 
 	^ FFIUnix64LibraryFinder findLibrary: 'libunicorn.so'
 ]
+
+{ #category : 'accessing - platform' }
+UnicornLibrary >> win32LibraryName [
+	"MSVC builds produce unicorn.dll, MinGW builds libunicorn.dll"
+
+	^ FFIWindowsLibraryFinder findAnyLibrary: #( 'unicorn.dll' 'libunicorn.dll' )
+]
